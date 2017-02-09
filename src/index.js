@@ -7,16 +7,12 @@ import manageBand from './reducers/manageBand'
 const store = createStore(manageBand)
 // not directly exporting the render function
 // because need to stub it out in tests.
-export const renderer = {render: render}
 
-
-function render(){
+export function render() {
   ReactDOM.render(
     <App store={store} />,
     document.getElementById('root')
   );
 }
 
-
-
-store.dispatch({type: 'buddy'})
+store.dispatch({ type: '@@init' })
