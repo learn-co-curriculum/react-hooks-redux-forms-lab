@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
+import App from './App';
 import createStore from './createStore'
 import manageBand from './reducers/manageBand'
 
 const store = createStore(manageBand)
-// not directly exporting the render function
-// because need to stub it out in tests.
 
-export function render() {
+const render = () => {
   ReactDOM.render(
     <App store={store} />,
     document.getElementById('root')
   );
-}
+};
 
-store.dispatch({ type: '@@init' })
+// not directly exporting the render function
+// because need to stub it out in tests.
+export const renderer = { render };
+
+store.dispatch({ type: '@@init' });
+
