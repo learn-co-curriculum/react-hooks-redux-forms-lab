@@ -3,13 +3,13 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import BandInput from '../src/components/BandInput'
 import sinon from 'sinon'
-import { renderer } from '../src/index'
+import { render } from '../src/index'
 import createStore from '../src/createStore'
 import manageBand from '../src/reducers/manageBand'
 import { App } from '../src/App'
 import Bands from '../src/components/Bands'
 
-describe('BandInput', () => {
+describe('BandInput Component', () => {
   it('has an text input field', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.find('input').first().type()).to.equal('input');
@@ -29,7 +29,7 @@ describe('BandInput', () => {
   })
 });
 
-describe('redux', () => {
+describe('Redux', () => {
 
   it('dispatches an action on submitting the form', () => {
     const store = createStore(manageBand)
@@ -47,7 +47,7 @@ describe('redux', () => {
   it('updates the state of the store after submitting the form', () => {
     const store = createStore(manageBand)
     const wrapper = shallow(<BandInput store={store}/>)
-    sinon.stub(renderer, "render");
+    sinon.stub(render, "render");
     let form = wrapper.find('form')
     let input = wrapper.find('input').first()
     input.simulate('change', { target: { value: 'Hello' } })
@@ -56,7 +56,7 @@ describe('redux', () => {
   });
 })
 
-describe('bandsComponent', () => {
+describe('Bands Component', () => {
   it('is a child of the app component', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.find(Bands)).to.have.length(1);
