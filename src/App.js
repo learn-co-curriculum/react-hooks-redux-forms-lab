@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import BandInput from './components/BandInput'
-import Bands from './components/Bands'
+import BandInput from './components/BandInput';
+import Bands from './components/Bands';
 
-export class App extends Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -11,4 +11,6 @@ export class App extends Component {
       </div>
     );
   }
-}
+};
+
+export default App;
