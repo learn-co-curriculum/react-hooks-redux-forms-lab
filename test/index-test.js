@@ -3,13 +3,13 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import BandInput from '../src/components/BandInput'
 import sinon from 'sinon'
-import { render } from '../src/index'
+import { renderer } from '../src/index'
 import createStore from '../src/createStore'
 import manageBand from '../src/reducers/manageBand'
 import { App } from '../src/App'
 import Bands from '../src/components/Bands'
 
-describe('BandInput Component', () => {
+describe('BandInput component', () => {
   it('has an text input field', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.find('input').first().type()).to.equal('input');
@@ -41,13 +41,12 @@ describe('Redux', () => {
     form.simulate('submit',  { preventDefault() {} })
     // need an expect
     store.dispatch.restore();
-
   });
 
   it('updates the state of the store after submitting the form', () => {
     const store = createStore(manageBand)
     const wrapper = shallow(<BandInput store={store}/>)
-    sinon.stub(render, "render");
+    sinon.stub(renderer, "render");
     let form = wrapper.find('form')
     let input = wrapper.find('input').first()
     input.simulate('change', { target: { value: 'Hello' } })
