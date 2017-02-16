@@ -9,7 +9,7 @@ import manageBand from '../src/reducers/manageBand'
 import { App } from '../src/App'
 import Bands from '../src/components/Bands'
 
-describe('BandInput', () => {
+describe('BandInput component', () => {
   it('has an text input field', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.find('input').first().type()).to.equal('input');
@@ -29,7 +29,7 @@ describe('BandInput', () => {
   })
 });
 
-describe('redux', () => {
+describe('Redux', () => {
 
   it('dispatches an action on submitting the form', () => {
     const store = createStore(manageBand)
@@ -41,7 +41,6 @@ describe('redux', () => {
     form.simulate('submit',  { preventDefault() {} })
     // need an expect
     store.dispatch.restore();
-
   });
 
   it('updates the state of the store after submitting the form', () => {
@@ -56,7 +55,7 @@ describe('redux', () => {
   });
 })
 
-describe('bandsComponent', () => {
+describe('Bands Component', () => {
   it('is a child of the app component', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.find(Bands)).to.have.length(1);
