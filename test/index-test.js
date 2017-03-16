@@ -6,7 +6,7 @@ import sinon from 'sinon'
 import { renderer } from '../src/index'
 import createStore from '../src/createStore'
 import manageBand from '../src/reducers/manageBand'
-import { App } from '../src/App'
+import App from '../src/App'
 import Bands from '../src/components/Bands'
 
 describe('BandInput component', () => {
