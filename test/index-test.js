@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
 import BandInput from '../src/components/BandInput'
 import sinon from 'sinon'
 import { renderer } from '../src/index'
@@ -8,6 +8,9 @@ import createStore from '../src/createStore'
 import manageBand from '../src/reducers/manageBand'
 import App from '../src/App'
 import Bands from '../src/components/Bands'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 describe('BandInput component', () => {
   it('has an text input field', () => {
