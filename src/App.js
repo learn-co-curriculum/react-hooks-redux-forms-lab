@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import BandInput from './components/BandInput';
-import Bands from './components/Bands';
+import BandsContainer from './components/BandsContainer'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <BandInput  />
-        <Bands />
+        <BandsContainer />
       </div>
     );
   }
