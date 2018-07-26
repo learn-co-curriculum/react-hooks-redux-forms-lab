@@ -10,16 +10,10 @@ const store = createStore(manageBand)
 
 
 
-const render = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-  document.getElementById('root')
-  )
-};
 
-render()
-// not directly exporting the render function
-// because need to stub it out in tests.
-export const renderer = { render };
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+document.getElementById('root')
+)
