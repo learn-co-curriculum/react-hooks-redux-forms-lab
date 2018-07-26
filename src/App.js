@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BandsContainer from './components/BandsContainer';
+import BandsContainer from './components/BandsContainer'
 
 class App extends Component {
   render() {
