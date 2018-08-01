@@ -25,7 +25,7 @@ describe('BandInput component', () => {
     expect(wrapper.state('text')).to.equal('')
   });
 
-  it('changes the local state on a keydown', () => {
+  it('changes the local state on input change', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.state('text'), "BandInput should mount with this.state.text equal to ''").to.equal('')
     let input = wrapper.find('input').first()
@@ -33,7 +33,7 @@ describe('BandInput component', () => {
     expect(wrapper.state('text'), "BandInput state did not contain the correct value").to.equal('Hello')
   })
 
-  it('calls `this.props.addBand` on submitting the form', () => {
+  it('calls dispatch when form is submitted', () => {
     const store = createStore(manageBand)
 
     let spy = sinon.spy(store, "dispatch")
@@ -54,7 +54,7 @@ describe('BandInput component', () => {
 
 describe('Redux', () => {
 
-  it('dispatches an action, updating the store when a form is submitted', () => {
+  it('updates the store when a form is submitted', () => {
     const store = createStore(manageBand)
 
     let spy = sinon.spy(store, "dispatch")
