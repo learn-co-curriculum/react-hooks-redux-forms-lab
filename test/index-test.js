@@ -22,15 +22,15 @@ describe('BandInput component', () => {
   it('has an initial state with text key set to empty string', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.state(), "BandInput state was not found").to.exist
-    expect(wrapper.state('text')).to.equal('')
+    expect(wrapper.state('name')).to.equal('')
   });
 
   it('changes the local state on input change', () => {
     const wrapper = shallow(<BandInput />)
-    expect(wrapper.state('text'), "BandInput should mount with this.state.text equal to ''").to.equal('')
+    expect(wrapper.state('name'), "BandInput should mount with this.state.text equal to ''").to.equal('')
     let input = wrapper.find('input').first()
     input.simulate('change', { target: { value: 'Hello' } })
-    expect(wrapper.state('text'), "BandInput state did not contain the correct value").to.equal('Hello')
+    expect(wrapper.state('name'), "BandInput state did not contain the correct value").to.equal('Hello')
   })
 
   it('calls dispatch when form is submitted', () => {
@@ -71,7 +71,7 @@ describe('Redux', () => {
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
 
-    expect(store.getState().bands[0]).to.equal("Hello")
+    expect(store.getState().bands[0].name).to.equal("Hello")
 
   });
 
@@ -109,10 +109,10 @@ describe('Bands Container', () => {
 
   it('renders each li with the correct name', () => {
       const store = createStore(manageBand)
-      sinon.stub(store, 'getState').returns({bands: ['hello', 'goodbye', 'ciao']});
+      sinon.stub(store, 'getState').returns({bands: [{ name: 'The Black Keys' }, { name: 'The White Stripes' }, { name: 'Black Moth Super Rainbow' }]});
       const wrapper = mount(<Provider store={store}><App /></Provider>)
-      expect(wrapper.text()).to.contain('hello');
-      expect(wrapper.text()).to.contain('goodbye');
-      expect(wrapper.text()).to.contain('ciao');
+      expect(wrapper.text()).to.contain('The Black Keys');
+      expect(wrapper.text()).to.contain('The White Stripes');
+      expect(wrapper.text()).to.contain('Black Moth Super Rainbow');
   });
 })

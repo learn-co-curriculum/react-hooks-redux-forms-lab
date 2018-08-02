@@ -27,8 +27,8 @@ component.
 2. You will need to write the `BandInput` component as a child of
 `BandsContainer`. The component should have a form with a text input and submit
 button. We would like to update the *component's* state each time the user types
-a new character in the input. However, we only update the __Redux__ store's
-state when the user hits the submit button.
+a new character in the input. stored as `this.state.name`. We will only
+update the __Redux__ store's state when the user hits the submit button.
 
 3. You will also need to fill in the `manageBand` reducer located under
 `./src/reducers/manageBand.js`. It will need to respond to an action of `type
