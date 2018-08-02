@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import React from 'react'
 import { configure, shallow, mount } from 'enzyme'
 import BandInput from '../src/components/BandInput'
-import BandsContainer from '../src/components/BandsContainer'
+import BandsContainer from '../src/containers/BandsContainer'
 import sinon from 'sinon'
 import { renderer } from '../src/index'
 import { createStore } from 'redux'
