@@ -29,7 +29,7 @@ describe('BandInput component', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.state('name'), "BandInput should mount with this.state.text equal to ''").to.equal('')
     let input = wrapper.find('input').first()
-    input.simulate('change', { target: { value: 'Hello' } })
+    input.simulate('change', { target: { name: 'name', value: 'Hello' } })
     expect(wrapper.state('name'), "BandInput state did not contain the correct value").to.equal('Hello')
   })
 
@@ -68,7 +68,7 @@ describe('Redux', () => {
     expect(store.getState().bands, "'bands' not found in the store").to.exist
     expect(store.getState().bands, "Initial state of 'bands' should be an empty array").to.be.empty
 
-    input.simulate('change', { target: { value: 'Hello' } })
+    input.simulate('change', { target: { name: 'name', value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
 
     expect(store.getState().bands[0].name).to.equal("Hello")
