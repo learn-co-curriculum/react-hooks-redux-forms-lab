@@ -19,7 +19,7 @@ describe('BandInput component', () => {
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
-  it('has an initial state with name key set to empty string', () => {
+  it('has an initial state with text key set to empty string', () => {
     const wrapper = shallow(<BandInput />)
     expect(wrapper.state(), "BandInput state was not found").to.exist
     expect(wrapper.state('name')).to.equal('')
@@ -33,7 +33,22 @@ describe('BandInput component', () => {
     expect(wrapper.state('name'), "BandInput state did not contain the correct value").to.equal('Hello')
   })
 
-  it('calls dispatch when form is submitted', () => {
+  it('has a prop, addBand, that is called when the form is submitted', () => {
+    let test = 0
+    function addBand() {
+      test = 1
+    }
+
+    const wrapper = shallow(<BandInput addBand={addBand}/>)
+    let input = wrapper.find('input').first()
+    let form = wrapper.find('form')
+    expect(test).to.eql(0)
+    input.simulate('change', { target: { value: 'Hello' } })
+    form.simulate('submit',  { preventDefault() {} })
+    expect(test).to.eql(1)
+  })
+
+  it('using addBand, calls dispatch when form is submitted', () => {
     const store = createStore(manageBand)
 
     let spy = sinon.spy(store, "dispatch")
@@ -68,7 +83,7 @@ describe('Redux', () => {
     expect(store.getState().bands, "'bands' not found in the store").to.exist
     expect(store.getState().bands, "Initial state of 'bands' should be an empty array").to.be.empty
 
-    input.simulate('change', { target: { name: 'name', value: 'Hello' } })
+    input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
 
     expect(store.getState().bands[0].name).to.equal("Hello")
