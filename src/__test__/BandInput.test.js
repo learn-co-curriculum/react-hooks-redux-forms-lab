@@ -1,6 +1,8 @@
+import "@testing-library/jest-dom";
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import BandInput from "../features/bands/BandInput";
+import { act } from "react-dom/test-utils";
 
 test("renders an input with a label of 'name'", () => {
   render(<BandInput />);
