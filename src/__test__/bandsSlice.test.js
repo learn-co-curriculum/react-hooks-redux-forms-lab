@@ -1,10 +1,6 @@
 import bandsReducer, { bandsAdded } from "../features/bands/bandsSlice";
 
 describe("actions", () => {
-  test("bandsAdded is exported", () => {
-    expect(bandsAdded("test")).not.toThrow();
-  });
-
   test("bandsAdded returns an action with a type of 'bands/bandsAdded' and a payload", () => {
     expect(bandsAdded("test")).toEqual({
       type: "bands/bandsAdded",
