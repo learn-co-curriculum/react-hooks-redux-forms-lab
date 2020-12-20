@@ -37,7 +37,7 @@ The basic Redux setup has already been implemented for you.
 
 3. You will also need to fill in the reducer in the
    `./src/features/bands/bandsSlice.js` file. Make a method in that reducer
-   called `bandsAdded` and export the action creator.
+   called `bandAdded` and export the action creator.
 
 4. Once you've got a form successfully dispatching actions and adding bands to
    your **Redux** store, write the necessary code to display each band name from

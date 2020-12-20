@@ -3,11 +3,11 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import BandContainer from "../features/bands/BandsContainer";
-import { bandsAdded } from "../features/bands/bandsSlice";
+import { bandAdded } from "../features/bands/bandsSlice";
 import store from "../store";
 
-store.dispatch(bandsAdded("test 1"));
-store.dispatch(bandsAdded("test 2"));
+store.dispatch(bandAdded("test 1"));
+store.dispatch(bandAdded("test 2"));
 
 test("renders each band name from the store", () => {
   render(
