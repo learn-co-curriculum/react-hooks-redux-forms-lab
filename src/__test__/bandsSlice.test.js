@@ -1,9 +1,9 @@
-import bandsReducer, { bandsAdded } from "../features/bands/bandsSlice";
+import bandsReducer, { bandAdded } from "../features/bands/bandsSlice";
 
 describe("actions", () => {
-  test("bandsAdded returns an action with a type of 'bands/bandsAdded' and a payload", () => {
-    expect(bandsAdded("test")).toEqual({
-      type: "bands/bandsAdded",
+  test("bandAdded returns an action with a type of 'bands/bandAdded' and a payload", () => {
+    expect(bandAdded("test")).toEqual({
+      type: "bands/bandAdded",
       payload: "test",
     });
   });
@@ -14,12 +14,12 @@ describe("reducer", () => {
     expect(bandsReducer(undefined, {})).toEqual({ entities: [] });
   });
 
-  test("handles 'bands/bandsAdded'", () => {
+  test("handles 'bands/bandAdded'", () => {
     expect(
       bandsReducer(
         { entities: [] },
         {
-          type: "bands/bandsAdded",
+          type: "bands/bandAdded",
           payload: "test",
         }
       )
@@ -33,7 +33,7 @@ describe("reducer", () => {
           entities: ["test"],
         },
         {
-          type: "bands/bandsAdded",
+          type: "bands/bandAdded",
           payload: "test 2",
         }
       )
