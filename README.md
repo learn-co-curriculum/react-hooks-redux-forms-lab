@@ -1,9 +1,9 @@
 # Set List Lab
 
-## Objectives
+## Learning Goals
 
-1. Use forms to create new elements and update the store.
-2. Display a list of the new elements in a separate component.
+- Use forms to create new elements and update the store.
+- Display a list of the new elements in a separate component.
 
 ## Overview
 
